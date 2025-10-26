@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgsUnstable,
   ...
 }:
 {
@@ -10,7 +11,7 @@
 
   environment.systemPackages = [
     pkgs.discord
-    pkgs.jetbrains.idea-ultimate
-    pkgs.jetbrains.clion
+    pkgsUnstable.jetbrains.idea-ultimate
+    pkgsUnstable.jetbrains.clion
   ];
 }

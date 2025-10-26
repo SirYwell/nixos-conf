@@ -10,5 +10,7 @@
 
   environment.systemPackages = [
     pkgs.discord
+    pkgs.jetbrains.idea-ultimate
+    pkgs.jetbrains.clion
   ];
 }

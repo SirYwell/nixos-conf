@@ -13,5 +13,9 @@
     pkgs.discord
     pkgsUnstable.jetbrains.idea-ultimate
     pkgsUnstable.jetbrains.clion
+    pkgsUnstable.jdk25
+    pkgs.direnv
+
+    pkgs.prismlauncher
   ];
 }

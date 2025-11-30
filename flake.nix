@@ -2,8 +2,9 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, ... }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixos-hardware, ... }:
   let
     system = "x86_64-linux";
     pkgsUnstable = import nixpkgs-unstable { system = "x86_64-linux"; config.allowUnfree = true; };
@@ -18,6 +19,7 @@
     };
     nixosConfigurations.notebook = nixpkgs.lib.nixosSystem {
       modules = [
+        nixos-hardware.nixosModules.framework-amd-ai-300-series
         ./notebook.nix
 	./configuration.nix
         ./desktop.nix

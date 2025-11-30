@@ -8,10 +8,19 @@
     system = "x86_64-linux";
     pkgsUnstable = import nixpkgs-unstable { system = "x86_64-linux"; config.allowUnfree = true; };
   in {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      modules = [ 
+    nixosConfigurations.tower = nixpkgs.lib.nixosSystem {
+      modules = [
+        ./tower.nix
         ./configuration.nix
 	./desktop.nix
+      ];
+      specialArgs = { inherit pkgsUnstable; };
+    };
+    nixosConfigurations.notebook = nixpkgs.lib.nixosSystem {
+      modules = [
+        ./notebook.nix
+	./configuration.nix
+        ./desktop.nix
       ];
       specialArgs = { inherit pkgsUnstable; };
     };

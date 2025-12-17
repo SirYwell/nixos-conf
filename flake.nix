@@ -14,6 +14,8 @@
         ./tower.nix
         ./configuration.nix
 	./desktop.nix
+	./gaming.nix
+	./rtx2070super.nix
       ];
       specialArgs = { inherit pkgsUnstable; };
     };

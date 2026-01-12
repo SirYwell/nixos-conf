@@ -12,6 +12,7 @@ in
   environment.systemPackages = [
     (jetbrainsIde "idea")
     (jetbrainsIde "clion")
+    pkgsUnstable.zed-editor-fhs
   ];
 }
 

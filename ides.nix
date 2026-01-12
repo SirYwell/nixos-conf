@@ -13,6 +13,7 @@ in
     (jetbrainsIde "idea")
     (jetbrainsIde "clion")
     pkgsUnstable.zed-editor-fhs
+    pkgsUnstable.jabref
   ];
 }
 

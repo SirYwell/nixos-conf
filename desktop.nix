@@ -14,6 +14,7 @@
     pkgs.discord
     pkgsUnstable.jdk25
     pkgs.direnv
+    pkgs.thunderbird
 
     pkgs.prismlauncher
   ];

@@ -18,4 +18,5 @@
 
     pkgs.prismlauncher
   ];
+  programs.direnv.enable = true;
 }

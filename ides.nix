@@ -14,6 +14,8 @@ in
     (jetbrainsIde "clion")
     pkgsUnstable.zed-editor-fhs
     pkgsUnstable.jabref
+
+    pkgsUnstable.github-copilot-cli
   ];
 }
 

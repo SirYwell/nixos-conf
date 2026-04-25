@@ -35,5 +35,10 @@
       ";
   };
 
+  programs.ausweisapp = {
+    enable = true;
+    openFirewall = true;
+  };
+
   boot.kernel.sysctl."kernel.sysrq" = 1;
 }

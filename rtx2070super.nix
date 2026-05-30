@@ -7,6 +7,6 @@
     # package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
   services.xserver.videoDrivers = [ "nvidia" ];
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_12;
+  # boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_12;
 }
 

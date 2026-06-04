@@ -16,6 +16,9 @@
 	gpg.format = "ssh";
 	gpg.ssh.program = "/run/current-system/sw/bin/op-ssh-sign";
       }
+      {
+        pull.rebase = true;
+      }
     ];
   };
 }

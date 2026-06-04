@@ -16,6 +16,7 @@ in
     pkgsUnstable.jabref
 
     pkgsUnstable.github-copilot-cli
+    pkgsUnstable.lazygit
   ];
 }
 

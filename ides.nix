@@ -1,10 +1,10 @@
 {
   config,
-  pkgsUnstable,
+  pkgs,
   ...
 }:
 let 
-  jetbrainsIde = ide: (pkgsUnstable.jetbrains."${ide}").override {
+  jetbrainsIde = ide: (pkgs.jetbrains."${ide}").override {
     forceWayland = true;
   };
 in 
@@ -12,11 +12,11 @@ in
   environment.systemPackages = [
     (jetbrainsIde "idea")
     (jetbrainsIde "clion")
-    pkgsUnstable.zed-editor-fhs
-    pkgsUnstable.jabref
+    pkgs.zed-editor-fhs
+    pkgs.jabref
 
-    pkgsUnstable.github-copilot-cli
-    pkgsUnstable.lazygit
+    pkgs.github-copilot-cli
+    pkgs.lazygit
   ];
 }
 

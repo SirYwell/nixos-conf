@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  pkgsUnstable,
   boot,
   ...
 }:
@@ -13,7 +12,7 @@
 
   environment.systemPackages = [
     pkgs.discord
-    pkgsUnstable.jdk25
+    pkgs.jdk25
     pkgs.direnv
     pkgs.thunderbird
 

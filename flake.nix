@@ -1,14 +1,12 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
   };
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, nixos-hardware, nixpkgs-xr, ... }:
+  outputs = inputs@{ self, nixpkgs, nixos-hardware, nixpkgs-xr, ... }:
   let
     system = "x86_64-linux";
-    pkgsUnstable = import nixpkgs-unstable { system = "x86_64-linux"; config.allowUnfree = true; };
   in {
     nixosConfigurations.tower = nixpkgs.lib.nixosSystem {
       modules = [
@@ -20,7 +18,6 @@
 	nixpkgs-xr.nixosModules.nixpkgs-xr
 	./rtx2070super.nix
       ];
-      specialArgs = { inherit pkgsUnstable; };
     };
     nixosConfigurations.notebook = nixpkgs.lib.nixosSystem {
       modules = [
@@ -29,7 +26,6 @@
 	./configuration.nix
         ./desktop.nix
       ];
-      specialArgs = { inherit pkgsUnstable; };
     };
   };
 }

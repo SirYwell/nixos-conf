@@ -87,8 +87,10 @@ let
 in
 {
   environment.systemPackages = [
-    (jetbrainsIde "idea")
-    (jetbrainsIde "clion")
+    # (jetbrainsIde "idea")
+    pkgs.jetbrains.idea
+    # (jetbrainsIde "clion")
+    pkgs.jetbrains.clion
     pkgs.zed-editor-fhs
     pkgs.jabref
 

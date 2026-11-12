@@ -5,10 +5,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [
-    ];
-
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Use the systemd-boot EFI boot loader.
@@ -91,7 +87,6 @@
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       zsh
-      fzf
     ];
   };
 
@@ -100,9 +95,9 @@
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
-    neovim
     wget
   ];
+  environment.sessionVariables.EDITOR = lib.mkOverride 900 "nvim";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -155,24 +150,6 @@
 
     polkitPolicyOwners = [ "hannes" ];
   };
-
-  programs = {
-    neovim.enable = true;
-    neovim.defaultEditor = true;
-    zsh = {
-      enable = true;
-      enableCompletion = true;
-      autosuggestions.enable = true;
-      syntaxHighlighting.enable = true;
-      ohMyZsh = {
-        enable = true;
-	plugins = [ "1password" "git" "sudo" ];
-	theme = "agnoster";
-      };
-    };
-  };
-
-  system.userActivationScripts.zshrc = "echo 'eval \"$(fzf --zsh)\"\n' > .zshrc";
 
 }
 		
